@@ -9,8 +9,15 @@ class NotesViewController: UIViewController {
     
     private let addButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Add Note", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.setTitle("Добавить заметку +", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
+        button.layer.borderWidth = 2  // Увеличим толщину границы
+        button.layer.borderColor = UIColor.systemBlue.cgColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 16, left: 40, bottom: 16, right: 40)
         button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
         return button
     }()
@@ -46,7 +53,7 @@ class NotesViewController: UIViewController {
         var config = UICollectionLayoutListConfiguration(appearance: .plain)
         
         config.trailingSwipeActionsConfigurationProvider = { indexPath in
-            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, completion in
+            let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { [weak self] action, view, completion in
                 self?.deleteItem(at: indexPath)
                 completion(true)
             }
