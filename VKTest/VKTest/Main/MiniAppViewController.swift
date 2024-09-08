@@ -122,7 +122,7 @@ class MiniAppViewController: UIViewController {
 extension MiniAppViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1 // Количество мини-приложений
+        return 1 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -183,10 +183,10 @@ class MiniAppCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             dateLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8), // Поднимаем дату вверх
+            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             
             label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            label.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8), // Сдвигаем label вниз от даты
+            label.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             
             notesLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             notesLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8)
@@ -218,7 +218,6 @@ class MiniAppCell: UICollectionViewCell {
             notesLabel.isHidden = true
         }
         
-        // Уменьшение шрифта для mode == .small
         let fontSize: CGFloat = mode == .small ? 12 : 16
         label.font = UIFont.systemFont(ofSize: fontSize)
         notesLabel.font = UIFont.systemFont(ofSize: fontSize)
